@@ -6,10 +6,17 @@ using System.Threading.Tasks;
  
 namespace Design_Patterns
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            //Singleton s1= new Singleton();
+            //s1.Print("this is first message");
+            //s1.Print("this is second message");
+            Singleton s1 = Singleton.GetInstance;
+            s1.Print("hi this is the first message");
+            Singleton s2= Singleton.GetInstance;
+            s2.Print("HI THIS SI SECOND MESSAGE");
         }
     }
 }
