@@ -8,7 +8,7 @@ namespace Design_Patterns
 {
     public sealed class Singleton
     {
-
+        private static int c=0;
         public static Singleton instance=null;
         public static Singleton GetInstance
         {
@@ -21,6 +21,8 @@ namespace Design_Patterns
         }
         private Singleton()
         {
+            c++;
+            Console.WriteLine(c.ToString());
 
         }
        public void Print(string msg)
