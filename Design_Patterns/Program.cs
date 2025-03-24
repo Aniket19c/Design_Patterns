@@ -18,6 +18,10 @@ namespace Design_Patterns
             s1.Print("hi this is the first message");
             Singleton s2= Singleton.GetInstance;
             s2.Print("HI THIS SI SECOND MESSAGE");
+
+            Console.WriteLine("Before accessing message.");
+            Console.WriteLine(Lazy.Message); // First time, initializes
+            Console.WriteLine(Lazy.Message); // Second time, reuses
         }
     }
 }
