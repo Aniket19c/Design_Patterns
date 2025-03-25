@@ -6,10 +6,45 @@ using System.Threading.Tasks;
  
 namespace Design_Patterns
 {
-    internal class Program
+
+    interface IPhoneCharger
     {
-        static void Main(string[] args)
+        void ChargePhone();
+    }
+
+    class EuropeanCharger
+    {
+        public void ChargeWithEuropeanPlug()
         {
+            Console.WriteLine("Charging with European Plug...");
         }
     }
+
+    class ChargerAdapter : IPhoneCharger
+    {
+        private EuropeanCharger _europeanCharger;
+
+        public ChargerAdapter(EuropeanCharger europeanCharger)
+        {
+            _europeanCharger = europeanCharger;
+        }
+
+        public void ChargePhone()
+        {
+            Console.WriteLine("Using Adapter...");
+            _europeanCharger.ChargeWithEuropeanPlug();
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            EuropeanCharger oldCharger = new EuropeanCharger();
+            IPhoneCharger adapter = new ChargerAdapter(oldCharger);
+            adapter.ChargePhone();
+            Console.ReadLine(); 
+        }
+    }
+
 }
